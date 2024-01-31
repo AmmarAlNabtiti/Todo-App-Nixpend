@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "c86cd79c-26a3-4b25-bec2-81cd80c7671a",
+		"name": "TodoApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25454666",
+		"_collection_link": "https://bold-meadow-293533.postman.co/workspace/Team-Workspace~c96a6919-2055-48b2-8b6d-ff2336ffbf12/collection/25454666-c86cd79c-26a3-4b25-bec2-81cd80c7671a?action=share&source=collection_link&creator=25454666"
+	},
+	"item": [
+		{
+			"name": "Create task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"title\": \"Home Renovation\",\r\n    \"description\": \"Research contractors, get quotes, schedule work.\",\r\n    \"subtasks\": [\r\n      {\"title\": \"Research Contractors\", \"completed\": false},\r\n      {\"title\": \"Get Quotes\", \"completed\": false},\r\n      {\"title\": \"Schedule Work\", \"completed\": false}\r\n    ],\r\n    \"status\": \"inprogress\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Task By ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"Sample Task\",\r\n      \"description\": \"This is a sample task for demonstration purposes.\",\r\n      \"subtasks\": [\r\n        { \"title\": \"Subtask 1\", \"completed\": false },\r\n        { \"title\": \"Subtask 2\", \"completed\": true }\r\n      ],\r\n      \"status\": \"todo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/tasks/65b7856a1506457a275db178",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"65b7856a1506457a275db178"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update task by ID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"title\": \"New task\",\r\n      \"description\": \"This is a sample task for demonstration purposes.\",\r\n      \"subtasks\": [\r\n        { \"title\": \"Subtask 1\", \"completed\": true },\r\n        { \"title\": \"Subtask 2\", \"completed\": true }\r\n      ],\r\n      \"status\": \"todo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/tasks/65afb6c56d36d9cfca2ce72b",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"65afb6c56d36d9cfca2ce72b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All tasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All Tasks",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/tasks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/tasks/65b7856a1506457a275db178",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"65b7856a1506457a275db178"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

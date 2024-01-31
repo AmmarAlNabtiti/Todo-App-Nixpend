@@ -1,0 +1,40 @@
+<div id="overlay" class="overlay" *ngIf="isOpen" (click)="closeModal($event)">
+  <div class="modal">
+    <article>
+      <h1>{{ cardDetail?.data?.task?.title }}</h1>
+      <p class='description'>
+        {{ cardDetail?.data?.task?.description }}
+      </p>
+
+      <form>
+        <h2>
+          Subtasks (<strong>{{ getCompletedSubtasksCount() }} of {{ cardDetail?.data?.task.subtasks.length }}</strong>)
+        </h2>
+
+        <div class='subtask-group'>
+          <div class='subtask' *ngFor="let subtask of cardDetail?.data?.task.subtasks">
+            <input type="checkbox" [checked]="subtask.completed" (change)="updateSubtaskCompletion(subtask, $event)">
+            <label class='subtask-title' [class.done]="subtask.completed">{{ subtask.title
+              }}</label>
+          </div>
+        </div>
+
+        <!-- Display message if there are no subtasks -->
+        <ng-container *ngIf="cardDetail?.data?.task.subtasks.length === 0">
+          <p class='no-subtask'>No subtasks for this todo.</p>
+        </ng-container>
+
+        <div class='select-option'>
+          <label for="status">Status</label><br>
+          <select (change)="updateStatus()" [(ngModel)]="cardStatus" name="status" id="status">
+            <option value="todo">Todo</option>
+            <option value="inprogress">In Progress</option>
+            <option value="done">Done</option>
+          </select>
+        </div>
+
+      </form>
+      <button (click)="deleteTodo(cardDetail?.data?.task._id)" class='delete-btn'>Delete Todo</button>
+    </article>
+  </div>
+</div>

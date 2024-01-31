@@ -1,0 +1,51 @@
+<aside [ngStyle]="{display: isSidebarHidden?'none':'block'}">
+  <h3>ALL BOARDS (3)</h3>
+  <div class="content">
+    <ul>
+      <nav>
+        <li [routerLink]='["/todo"]' routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <p>
+            <span><i class="fa-solid fa-server"></i></span>
+            <span>Platform Launch</span>
+          </p>
+        </li>
+
+        <li [routerLink]='["/chart"]' routerLinkActive="active">
+          <p>
+            <span><i class="fa-solid fa-server"></i></span>
+            <span>Marketing Plane</span>
+          </p>
+        </li>
+
+        <li [routerLink]='["/roadmap"]' routerLinkActive="active">
+          <p>
+            <span><i class="fa-solid fa-server"></i></span>
+            <span>Roadmap</span>
+          </p>
+        </li>
+      </nav>
+
+      <div>
+        <p class='add-board'>
+          <span><i class="fa-solid fa-server"></i></span>
+          <span>&plus; Create new Board</span>
+        </p>
+      </div>
+
+    </ul>
+    <div class='status-links-container'>
+      <div class='status-links'>
+        <i class="fa-solid fa-moon"></i>
+        <input type="checkbox" id="switch" /><label (click)="fakeDarkMode()" for="switch">Toggle</label>
+        <i class="fa-solid fa-sun"></i>
+      </div>
+      <div (click)='hideSidebar()' class='hide-sidebar'>
+        <i class="fa-regular fa-eye-slash"></i>
+        <p>Hide Sidebar</p>
+      </div>
+    </div>
+
+  </div>
+</aside>
+<i [ngStyle]="{display: isSidebarHidden?'block':'none'}" (click)="hideSidebar()"
+  class="fa-solid fa-arrow-right-from-bracket open-sidebar-icon"></i>

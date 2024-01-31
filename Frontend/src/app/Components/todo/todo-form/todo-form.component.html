@@ -1,0 +1,60 @@
+<div id="overlay" class="overlay" *ngIf="isOpen" (click)="closeModal($event)">
+  <div class="modal">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+
+      <!-- Title field -->
+      <div>
+        <label for="title">Title</label>
+        <input formControlName='title' placeholder='E.g., Take a Coffee Break' name='title' id='title' type="text">
+        <div class='error-message'
+          *ngIf="taskForm.get('title')?.hasError('required') && taskForm.get('title')?.touched">
+          Title is required.
+        </div>
+      </div>
+
+      <!-- Description field -->
+      <div>
+        <label for="description">Description</label><br>
+        <textarea formControlName='description' placeholder="E.g., Enjoying a quiet moment with a cup of coffee."
+          name="description" id="description" cols="30" rows="10"></textarea>
+        <div class='error-message'
+          *ngIf="taskForm.get('description')?.hasError('minlength') && taskForm.get('description')?.touched">
+          Description must be at least 3 characters long.
+        </div>
+      </div>
+
+      <!-- Subtasks array -->
+      <div class='overflow' formArrayName="subtasks">
+        <div *ngFor="let subtask of subtasksFormArray.controls; let i = index" [formGroupName]="i"
+          class="subtask-group">
+          <div class='subtask'>
+            <input name='subtask' formControlName='title' placeholder='E.g., Buy coffee beans' type="text">
+
+            <i class="fa-solid fa-xmark close-icon" (click)="removeSubtask(i)"></i>
+            <div class='error-message'
+              *ngIf="subtask.get('title')?.hasError('minlength') && subtask.get('title')?.touched">
+              At least use 2 letter.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" (click)="addSubtask()" class='btn-secondary'> &plus; Add New Subtask</button>
+
+      <!-- Status field -->
+      <div>
+        <label for="status">Status</label><br>
+        <select formControlName='status' name="status" id="status">
+          <option value="todo">Todo</option>
+          <option selected value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+
+      <!-- Submit button -->
+      <button [disabled]="!taskForm.valid" type='submit'>Create New Task</button>
+
+    </form>
+
+  </div>
+</div>

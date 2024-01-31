@@ -1,0 +1,9 @@
+<header class='header'>
+  <h1>Platform Lunch</h1>
+  <span></span>
+  <select (change)="handleOnchangeOrder()" [(ngModel)]="todoOrder" name="taskOrder" id="taskOrder">
+    <option value="asc">Sort Todos From Oldest to Newest</option>
+    <option value="desc">Sort Todos From Newest to Oldest</option>
+  </select>
+  <button [routerLink]="['/todo-form']">&plus; Add New Task</button>
+</header>

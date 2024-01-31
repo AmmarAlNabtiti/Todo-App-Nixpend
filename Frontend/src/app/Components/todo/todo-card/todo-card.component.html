@@ -1,0 +1,4 @@
+<article [routerLink]="['/todo-details/',todoData?._id]" (click)="openTaskDetails()" class='card'>
+  <h2 class='card-title'>{{todoData?.title }}</h2>
+  <p class='card-count'>{{completedSubtasksCount}} of {{todoData?.subtasks?.length}} subtasks</p>
+</article>

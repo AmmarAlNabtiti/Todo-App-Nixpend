@@ -1,0 +1,47 @@
+<section class='todo-card-list'>
+
+  <div class="todo">
+    <div class='tag'>
+      <span class='todo-tag'>&nbsp;</span>
+      <span class='tag-status'>Todo <strong>({{todoTasks.length}})</strong></span>
+    </div>
+
+    <ul>
+      <li *ngFor="let todo of todoTasks | sortByDate: order">
+        <app-todo-card [todoData]=todo></app-todo-card>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="doing">
+    <div class='tag'>
+      <span class='doing-tag'>&nbsp;</span>
+      <span class='tag-status'>Doing <strong>({{doingTasks.length}})</strong></span>
+    </div>
+
+    <ul *ngFor="let todo of doingTasks | sortByDate: order">
+      <li>
+        <app-todo-card [todoData]=todo></app-todo-card>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="done">
+    <div class='tag'>
+      <span class='done-tag'>&nbsp;</span>
+      <span class='tag-status'>Done <strong>({{doneTasks.length}})</strong></span>
+    </div>
+    <ul *ngFor="let todo of doneTasks | sortByDate: order">
+      <li>
+        <app-todo-card [todoData]=todo></app-todo-card>
+      </li>
+    </ul>
+  </div>
+  <div class="add-column">
+
+    <h3>&plus; New Column</h3>
+  </div>
+  <app-loader [onLoading]='isLoading'></app-loader>
+</section>

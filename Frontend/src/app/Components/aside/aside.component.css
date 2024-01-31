@@ -1,0 +1,159 @@
+aside {
+  min-height: 100%;
+  padding-top: 6rem;
+  padding-right: 2rem;
+  position: relative;
+}
+
+h3 {
+  color: #555;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  letter-spacing: 0.75px;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80vh;
+}
+
+p {
+  padding: 1rem 1rem 1rem 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+li {
+  transition: all 0.3s;
+}
+li:hover {
+  background-color: #6561bb;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+.add-board {
+  color: #6561bb;
+  transition: all 0.4s;
+}
+
+.add-board:hover {
+  background-color: #0000002d;
+}
+
+.active {
+  background-color: #6561bb;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+/* toggle button */
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #bada55;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 130px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Links */
+.status-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.hide-sidebar {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  margin: auto;
+}
+.hide-sidebar p {
+  color: #555;
+}
+.hide-sidebar i {
+  color: #555;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.status-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #21212d;
+  padding: 1rem;
+  width: 80%;
+  margin-inline: auto;
+}
+.status-links i {
+  font-size: 1.5rem;
+  color: #555;
+  display: inline-block;
+}
+.status-links i:last-child {
+  margin-left: 1rem;
+}
+
+.open-sidebar-icon {
+  position: absolute;
+  top: 50%;
+  left: -0.5%;
+  font-size: 2rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.open-sidebar-icon:hover {
+  left: 0%;
+  color: #ccc;
+}

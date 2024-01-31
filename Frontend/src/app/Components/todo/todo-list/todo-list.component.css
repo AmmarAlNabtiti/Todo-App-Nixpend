@@ -1,0 +1,66 @@
+.todo-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  column-gap: 2.5rem;
+  row-gap: 2rem;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+ul li {
+  list-style: none;
+  transition: transform 0.3s;
+  cursor: pointer;
+  transform: scale(1);
+}
+ul li:hover {
+  transform: scale(1.03);
+}
+.todo,
+.doing,
+.done {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.todo-tag,
+.doing-tag,
+.done-tag {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: inline-block;
+  border-radius: 50%;
+}
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.todo-tag {
+  background-color: #3ec2d6;
+}
+.doing-tag {
+  background-color: #826ef1;
+}
+.done-tag {
+  background-color: #63e3ae;
+}
+.tag-status {
+  font-size: 1.2rem;
+  color: #555;
+  letter-spacing: 0.75px;
+}
+.add-column {
+  background-color: #23232f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.add-column h3 {
+  color: #888;
+  font-weight: bold;
+  font-size: 1.7rem;
+}

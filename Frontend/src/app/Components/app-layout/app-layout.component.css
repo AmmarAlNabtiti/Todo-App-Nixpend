@@ -1,0 +1,27 @@
+/* LAYOUT */
+
+.app {
+  display: grid;
+  grid-template-columns: auto repeat(4, 1fr);
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+
+app-header {
+  background-color: #2c2c38;
+  grid-column: 2/-1;
+}
+
+app-aside {
+  background-color: #2c2c38;
+  grid-row: 1/-1;
+  border-right: 1px solid #ffffff1a;
+}
+
+app-main {
+  background-color: #21212d;
+  grid-column: 2/-1;
+  padding: 4rem 2rem;
+  padding-right: 0rem;
+  overflow-y: scroll;
+}
